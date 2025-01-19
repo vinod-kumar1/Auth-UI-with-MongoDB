@@ -2,6 +2,7 @@
   "name": "music-player",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://vinod-kumar1.github.io/Auth-UI-with-MongoDB",
   "dependencies": {
     "cra-template": "1.2.0",
     "crypto": "^1.0.1",

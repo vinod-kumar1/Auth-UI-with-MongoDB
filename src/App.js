@@ -1,9 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useRef, useState } from "react";
-import { Link, Route, Routes } from "react-router";
+import {
+  Link,
+  Route,
+  Routes,
+  Navigate,
+  useNavigate,
+  HashRouter as Router,
+} from "react-router";
 import { verifyUser, createUser, key, iv } from "./verify.js";
-import { BrowserRouter } from "react-router";
 import { useContext, createContext } from "react";
 
 import CryptoJS from "crypto-js";
@@ -13,12 +19,17 @@ function Loading() {
   return <h2>Loading the Music App...</h2>;
 }
 
+function removeUser() {
+  localStorage.removeItem("userdetails");
+}
+
 function LoginPage() {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [status, setStatus] = useState(false);
   let [loading, setLoading] = useState(false);
   let [passShow, setShow] = useState(false);
+  let Navigate = useNavigate();
 
   useEffect(() => {
     let res = localStorage.getItem("userdetails");
@@ -38,7 +49,7 @@ function LoginPage() {
     try {
       setLoading(true);
       let res = await verifyUser(email, password);
-      if (res) window.location = "/home";
+      if (res) Navigate("/home");
       else {
         setStatus(true);
         setTimeout(() => setStatus(false), 2000);
@@ -75,9 +86,9 @@ function LoginPage() {
       <button onClick={() => setShow((p) => !p)}>Show pass</button>
       <button onClick={loginAction}>Login</button>
       <br />
-      <a href="/signup" id="signup">
+      <Link to={"/signup"} id="signup">
         Sign Up?
-      </a>
+      </Link>
     </div>
   );
 }
@@ -89,14 +100,16 @@ function Signup() {
   });
   let [loading, setLoading] = useState(false);
   let [passShow, setShow] = useState(false);
+  let Navigate = useNavigate();
 
   async function signupAction() {
+    removeUser();
     try {
       setLoading(true);
       let res = await createUser(loginDetails.email, loginDetails.password);
       if (res._id) {
         alert("You've successfully registered, please login now!");
-        window.location = "/";
+        Navigate("/");
       }
     } catch (err) {
       alert("Please see the console for the error logs");
@@ -139,20 +152,21 @@ function App() {
   let [update, forceUpdate] = useState(true);
 
   return (
-    <BrowserRouter>
-      <Render.Provider value={forceUpdate}>
+    <Render.Provider value={forceUpdate}>
+      <Router>
         <Routes>
           <Route index path="/" Component={LoginPage}></Route>
           <Route path="/signup" Component={Signup} />
           <Route path="/home" Component={Home} />
         </Routes>
-      </Render.Provider>
-    </BrowserRouter>
+      </Router>
+    </Render.Provider>
   );
 }
 
 function Home() {
   let forceUpdate = useContext(Render);
+  let Navigate = useNavigate();
 
   function logout() {
     localStorage.removeItem("userdetails");
@@ -162,7 +176,7 @@ function Home() {
   useEffect(() => {
     if (!localStorage.getItem("userdetails")) {
       alert("You've logged out, please login again");
-      window.location = "/";
+      Navigate("/");
     }
   }, []);
 

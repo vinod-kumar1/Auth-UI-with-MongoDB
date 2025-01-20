@@ -2,11 +2,12 @@
   "name": "music-player",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vinod-kumar1.github.io/Auth-UI-with-MongoDB/docs",
+  "homepage": "https://vinod-kumar1.github.io/Auth-UI-with-MongoDB",
   "dependencies": {
     "cra-template": "1.2.0",
     "crypto": "^1.0.1",
     "crypto-js": "^4.2.0",
+    "gh-pages": "^6.3.0",
     "mongodb": "^6.12.0",
     "mongoose": "^8.9.5",
     "node-forge": "^1.3.1",
@@ -18,10 +19,12 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PUBLIC_URL=/Auth-UI-with-MongoDB react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

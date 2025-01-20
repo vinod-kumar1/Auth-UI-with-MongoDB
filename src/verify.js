@@ -25,12 +25,7 @@ export async function verifyUser(email, password) {
   } else return false;
 }
 
-function removeUser() {
-  localStorage.removeItem("userdetails");
-}
-
 export async function createUser(email, password) {
-  removeUser(); // to remove any existing user if you signup again
   let res = await fetch(
     "https://db-verification-52w2kdqg9-rdj.vercel.app/createuser",
     {

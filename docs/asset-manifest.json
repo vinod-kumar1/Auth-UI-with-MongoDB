@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.0bef70cc.css",
-    "main.js": "/static/js/main.d10b2f27.js",
-    "static/js/488.a24bc528.chunk.js": "/static/js/488.a24bc528.chunk.js",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/index.html",
-    "main.0bef70cc.css.map": "/static/css/main.0bef70cc.css.map",
-    "main.d10b2f27.js.map": "/static/js/main.d10b2f27.js.map",
-    "488.a24bc528.chunk.js.map": "/static/js/488.a24bc528.chunk.js.map"
+    "main.css": "/Auth-UI-with-MongoDB/docs/static/css/main.0bef70cc.css",
+    "main.js": "/Auth-UI-with-MongoDB/docs/static/js/main.e859dd3e.js",
+    "static/js/488.a24bc528.chunk.js": "/Auth-UI-with-MongoDB/docs/static/js/488.a24bc528.chunk.js",
+    "static/media/logo.svg": "/Auth-UI-with-MongoDB/docs/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Auth-UI-with-MongoDB/docs/index.html",
+    "main.0bef70cc.css.map": "/Auth-UI-with-MongoDB/docs/static/css/main.0bef70cc.css.map",
+    "main.e859dd3e.js.map": "/Auth-UI-with-MongoDB/docs/static/js/main.e859dd3e.js.map",
+    "488.a24bc528.chunk.js.map": "/Auth-UI-with-MongoDB/docs/static/js/488.a24bc528.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0bef70cc.css",
-    "static/js/main.d10b2f27.js"
+    "static/js/main.e859dd3e.js"
   ]
 }

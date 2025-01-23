@@ -1,14 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useRef, useState } from "react";
-import {
-  Link,
-  Route,
-  Routes,
-  Navigate,
-  useNavigate,
-  HashRouter as Router,
-} from "react-router";
+import { Link, Route, Routes, Navigate, useNavigate } from "react-router";
 import { verifyUser, createUser, key, iv } from "./verify.js";
 import { useContext, createContext } from "react";
 
@@ -73,13 +66,13 @@ function LoginPage() {
       )}
       <input
         type="email"
-        placeholder="Enter your email"
+        placeholder="Enter your email..."
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type={!passShow ? "password" : "text"}
-        placeholder="Enter your password"
+        placeholder="Enter your password..."
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
@@ -95,8 +88,8 @@ function LoginPage() {
 
 function Signup() {
   let [loginDetails, setLoginDetails] = useState({
-    email: `sd${Math.floor(Math.random() * 10)}@gmail.com`,
-    password: `fd@@!#2r2${Math.floor(Math.random() * 10)}`,
+    email: "",
+    password: "",
   });
   let [loading, setLoading] = useState(false);
   let [passShow, setShow] = useState(false);
@@ -153,13 +146,11 @@ function App() {
 
   return (
     <Render.Provider value={forceUpdate}>
-      <Router>
-        <Routes>
-          <Route index path="/" Component={LoginPage}></Route>
-          <Route path="/signup" Component={Signup} />
-          <Route path="/home" Component={Home} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route index path="/" Component={LoginPage}></Route>
+        <Route path="/signup" Component={Signup} />
+        <Route path="/home" Component={Home} />
+      </Routes>
     </Render.Provider>
   );
 }
